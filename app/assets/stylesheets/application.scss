@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "toastr";
+@import "font-awesome";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  font-family: "Roboto";
+  font-size:1.6em;
+}
+
+
+.avatar-small {
+	width: 28px;
+}
+
+.avatar-medium {
+	width: 68px;
+}
+
+.avatar-large {
+	width: 88px;
+}
+
+.avatar-full {
+	width: 100%;
+}
+
+
+.user-img-frame {
+  padding-left:20px;
+  width:300px;
+  max-height:250px;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+
+.user-img-frame img {
+  width:100%;
+  object-fit: cover;
+}
+
+.product-carousel {
+  margin: auto;
+}
+
+.product-carousel img {
+  object-fit: cover;
+  width:100%;
+  max-height: 450px;
+}
+
+.carousel {
+  margin: auto;
+  width:70%;
+  max-height: 500px;
+}
+
+.carousel-inner {
+  background: #3E3C3C;
+}
+
+.product-thumbnail {
+  border: 1px solid #E4E9ED;
+  border-radius: 5px;
+  padding:5px;
+}
+
+.product-name {
+  display: block;
+  position: relative;
+  border-bottom: 1px dotted #E4E9ED;
+  font-weight:bold;
+  color: #3E3C3C;
+  padding-bottom: 8px;
+}
+
+.product-name:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 10%;
+  border-top: 2px solid #72C02C;	
+}
+
+.product-heading {
+  display: block;
+  border-bottom: 1px dotted #E4E9ED;
+  padding-bottom: 8px;
+  color: #3E3C3C;
+  position: relative;
+  padding-bottom:20px;
+  font-weight:bold;
+}
+
+.product-heading:after {
+  position: absolute;
+  content: "";
+  bottom: -2px;
+  left: 45%;
+  width: 10%;
+  border-top: 2px solid #72C02C;
+}
+
+.product-hero {
+	width:100%;
+}
+
+.seller-summary {
+  padding:10px;
+}
+
+.btn-order {
+  color: #3E3C3C;
+  border: #3E3C3C;
+  background: #f0c14b;
+  padding: 15px;
+  width:100%;
+  overflow:hidden;
+}
+

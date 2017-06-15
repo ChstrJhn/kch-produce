@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="row">
+
+	  <div class="col-md-12 text-center">
+	  	<h3 class="product-heading text-center">Hi, I'm <%= @user.fullname %></h3>
+		 <%= image_tag user_avatar(@user), class: "img-circle avatar-large" %>
+		 <br><br>
+		<p><%= @user.short_summary %></p>
+		<p>Mobile: <%= @user.contact_number %></p>
+		<br>
+	  </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12 text-center">  	
+	 <h3 class="product-heading text-center">About My Farm</h3>
+	 <div>
+	 <p>Business Address: <%= @user.business_add %></p>
+	   <% @user.user_photos.each do |pho| %>
+		<div class="col-md-2 col-md-offset-1" style="text-align: justify;">
+		  <div class="user-img-frame"><%= image_tag pho.image.url(), class: "img-thumbnail" %></div>
+	    </div>
+		<% end %>
+     </div>
+	</div>
+
+  </div>
+
+	<div class="row">
+
+	  <div class="col-md-12 text-center"> 
+		<h3 class="product-heading text-center">What I'm Selling</h3>
+		  <div>
+			<% @user.products.each do |p| %>
+			  <div class="col-md-2 col-md-offset-1" style="text-align: justify;">
+			   <div class="user-img-frame"><%= image_tag p.product_photos[0].image.url(),  class: "img-thumbnail" %>
+			   </div>
+			     <p class="text-center"><%= link_to p.product_name, product_path(p) %></p>
+			  </div>
+			<% end %>
+		  </div>
+	  </div>
+
+	</div>
+
+	<br>
+
+</div>

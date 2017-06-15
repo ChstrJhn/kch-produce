@@ -1,0 +1,135 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	List Your Product
+  </div>
+  <div class="panel-body">
+  	<div class="container">
+
+      <%= form_for @product, html: {multipart: true} do |f| %>
+
+      <div class="row col-md-12">
+      	<div class="col-md-6 select">
+      	  <div class="form-group">
+      	  	<label>Product Name</label>
+      	  	<%= f.text_field :product_name, placeholder: "product name", class: "form-control" %>
+      	  </div>
+      	</div>
+      </div>
+
+      <div class="row col-md-12">
+            <div class="col-md-6 select">
+              <div class="form-group">
+                  <label>Short description</label>
+                  <%= f.text_field :short_description, placeholder: "short description", class: "form-control" %>
+              </div>
+            </div>
+      </div>
+
+      <div class="row col-md-12">
+      	<div class="col-md-3">
+      	  <div class="form-group">
+      	  	<label>Type</label>
+      	  	<%= f.select :product_type, [["Salt","Salt"],["Vegetable", "Vegetable"],["Oil","Oil"],["Poultry","Poultry"],["Egg","Egg"], ["Meat", "Meat"], ["Roots","Roots"], ["Herb", "Herb"], ["Drink", "Drink"], ["Liquor", "Liquor"], ["Fruit", "Fruit"], ["Flower","Flower"], ["Other", "Other"]] %>
+     	        </div> 	  
+      	</div>
+
+      	<div class="col-md-3">
+      	  <div class="form-group">
+      	  	<label>Price (RM)</label>
+      	  	<%= f.number_field :price, placeholder: "50", class: "form-control" %>
+      	  </div> 
+      	</div>
+
+      	<div class="col-md-3">
+      	  <div class="form-group">
+      	  	<label>Unit Mass</label>
+      	  	<%= f.select :unit_mass, [["Kilogram","Kilogram"],["Grams", "Grams"],["Liter","Liter"],["Milliliter","Milliliter"]] %>
+      	  </div> 
+      	</div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                  <label>Mass</label>
+                  <%= f.number_field :mass, placeholder: "10", class: "form-control" %>
+              </div> 
+            </div>
+
+      </div>
+
+
+      <div class="row col-md-12">
+
+
+      	<div class="col-md-4">
+      	  <div class="form-group">
+      	  	<label>Stock</label>
+      	  	<%= f.number_field :stock_count, placeholder: "e.g. 100", class: "form-control" %>
+      	  </div> 
+      	</div>
+
+      	<div class="col-md-4">
+      	  <div class="form-group">
+      	  	<label>Origin</label>
+      	  	<%= f.text_field :origin, placeholder: "Bau, Serian", class: "form-control" %>
+      	  </div> 
+      	</div> 
+
+      	<div class="col-md-4">
+      	  <div class="form-group">
+      	  	<label>Processing Time</label>
+      	  	<%= f.select :estimated_delivery, [["Same day","Same day"], ["1 - 2 working days","1 - 2 working days"],["3 - 5 working days", "3 - 5 working days"],["Within 7 days","Within 7 days"]] %>
+      	  </div> 
+      	</div>  
+
+      </div>
+
+      <div class="row col-md-12">
+
+
+      	<div class="col-md-10">
+      	  <div class="form-group">
+      	  	<label>Long Description </label>
+      	  	<%= f.text_area :long_description, placeholder: "good product", cols: "10", rows: "10", class: "form-control" %>
+      	  </div> 
+      	</div>
+
+      </div>
+
+
+      <div class="row col-md-12">
+            <div class="col-md-4">
+                  <div class="form-group">
+                        <span class="btn btn-default btn-file">
+                        <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos
+                        <%= file_field_tag "images[]", type: :file, multiple: true %>
+                        </span>
+                  </div>
+            </div>
+      </div>
+
+      
+      <div id="photos"><%= render 'product_photos/list' %></div>
+
+      <div class="row">
+      	<div class="col-md-4">
+      	  <div class="form-group">
+      	  	<label>Active</label>
+      	  	<%= f.radio_button :is_active, :checked => false %>
+      	  </div> 
+      	</div>
+      </div>
+
+      <div class="row col-md-12">
+
+      	<div class="actions">
+      		<%= f.submit "Save", class: "btn btn-primary" %>
+      	</div>
+
+      </div>
+      
+      <% end %>
+
+
+  	</div>
+  </div>
+</div>
