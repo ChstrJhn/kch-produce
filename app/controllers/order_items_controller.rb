@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
  
   def create
-    byebug
+    # byebug
     @order = current_order
     if !@order.order_items.where(product_id: order_item_params[:product_id]).any?
       @order_item = @order.order_items.new(order_item_params)
