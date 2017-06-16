@@ -5,13 +5,12 @@ class ApplicationController < ActionController::Base
 
   def current_order
   	# FIX must only in-progress orders
-  	# byebug
     if current_user && !session[:order_id].nil? && Order.find(session[:order_id]).present?
       Order.find(session[:order_id])
-    elsif current_user && current_user.orders.where(order_status_id:1).present?
-      current_user.orders.where(order_status_id:1).first
+    elsif current_user && current_user.orders.where(order_status_id: 1).present?
+      current_user.orders.where(order_status_id: 1).first
     else
-      Order.new(user_id:current_user.id)
+      Order.new(user_id: current_user.id)
     end
   end
 
