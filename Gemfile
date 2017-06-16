@@ -24,8 +24,8 @@ gem 'toastr-rails'
 gem 'paperclip'
 gem "font-awesome-rails"
 gem 'geocoder'
-gem 'redis', '~>3.2'
-gem "hiredis", "~> 0.6.0"
+# gem 'redis', '~>3.2'
+# gem "hiredis", "~> 0.6.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

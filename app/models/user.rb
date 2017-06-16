@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :user_photos
+  has_many :orders
 
 
   def self.from_omniauth(auth)
@@ -29,4 +30,5 @@ class User < ApplicationRecord
   	end
 
   end
+
 end

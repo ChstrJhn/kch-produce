@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
   def show
     @product_photos = @product.product_photos
+    @order_item = current_order.order_items.new
   end
 
   def new
