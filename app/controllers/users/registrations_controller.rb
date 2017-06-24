@@ -19,12 +19,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
+
+  # self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+
+    # if resource.update_with_password(params[resource_name])
+    #   set_flash_message :notice, :updated if is_navigational_format?
+    #   sign_in resource_name, resource, :bypass => true
+    #   respond_with resource, :location => after_update_path_for(resource)
+    # else
+    #   clean_up_passwords(resource)
+    #   respond_with_navigational(resource){ render_with_scope :edit }
+    # end
+
     super
       if params[:images]
-      params[:images].each do |image|
-        current_user.user_photos.create(image: image)
+        params[:images].each do |image|
+          current_user.user_photos.create(image: image)
+        end
       end
-    end
+      if params[:profile_image]
+        params[:profile_image].each do |image|
+        current_user.create_profile_image(image: image)
+        end
+      end
   end
 
   # DELETE /resource
@@ -54,9 +71,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    edit_user_registration_path(current_user) if current_user
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

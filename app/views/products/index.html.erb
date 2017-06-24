@@ -1,0 +1,8 @@
+<div class="container">
+<h1>Product List</h1>
+<ul>
+<% @products.each do |p| %>
+<li><%= link_to p.product_name, product_path(p) %></li>
+<% end %>
+</ul>
+</div>

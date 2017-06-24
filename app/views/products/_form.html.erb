@@ -108,14 +108,13 @@
       </div>
 
       
-      <div id="photos"><%= render 'product_photos/list' %></div>
+      <div class="photos-list"><%= render 'product_photos/list' %></div>
 
       <div class="row">
       	<div class="col-md-4">
       	  <div class="form-group">
       	  	<label>Active</label>
-            <!-- FIX CHECKING FOR TRUE/FALSE -->
-      	  	<%= f.radio_button :is_active, :checked => false %>
+      	  	<%= f.radio_button :is_active, :checked => true %>
       	  </div> 
       	</div>
       </div>

@@ -1,1 +1,1 @@
-$("#photos").html("<%= j render 'product_photos/list' %>")
+$(".photos-list").html("<%= escape_javascript(render 'product_photos/list') %>")

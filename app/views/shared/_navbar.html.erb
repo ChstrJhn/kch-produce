@@ -37,7 +37,8 @@
                   <%= link_to cart_path do%>
                     <i class="fi-shopping-cart"></i>
                     My Cart
-                    (<span class="cart-count"><%=current_order.id%></span>)
+                    <!-- make ajax -->
+                    (<span class="cart-count"><%=current_order.order_items.count %></span>)
                   <%end%>
                 </li>
             <% end %>

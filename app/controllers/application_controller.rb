@@ -4,13 +4,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-  	# FIX must only in-progress orders
-    if current_user && !session[:order_id].nil? && Order.find(session[:order_id]).present?
-      Order.find(session[:order_id])
+    if current_user && !session[:order_id].nil? && Order.find_by(id: session[:order_id], user_id: current_user.id, order_status_id: 1).present?
+     current_user.orders.find_by(id: session[:order_id], user_id: current_user.id, order_status_id: 1)
     elsif current_user && current_user.orders.where(order_status_id: 1).present?
-      current_user.orders.where(order_status_id: 1).first
-    else
+      current_user.orders.find_by(order_status_id: 1)
+    elsif current_user && !current_user.orders.where(order_status_id: 1).present?
       Order.new(user_id: current_user.id)
+    else
+      Order.new
     end
   end
 
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
-  	devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :short_summary, :contact_number, :business_add])
+  	devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :short_summary, :contact_number, :business_add, :merchant, :profile_image])
   end
 
 end

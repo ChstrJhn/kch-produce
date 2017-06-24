@@ -1,0 +1,15 @@
+<div class="col-md-12">
+	<h3 class="product-heading text-center">Product Description</h3>
+	<p class="text-center col-md-8 col-md-offset-2"><%= @product.long_description %></p>
+</div>
+</div>
+
+<br><br>
+<div class="row">
+<div class="col-md-12">
+  <h3 class="product-heading text-center">About The Seller</h3>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="text-center"> <%= image_tag user_avatar(@product.user), class: "img-circle avatar-medium" %>&nbsp;&nbsp;<strong><%= link_to @product.user.fullname, user_path(@product.user) %></strong></div>
+    <div class="seller-summary text-center">"<%= @product.user.short_summary %>"</div>
+  </div>
+</div>

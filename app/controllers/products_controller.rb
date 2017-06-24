@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+  load_and_authorize_resource
   
   before_action :set_product, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @products = current_user.products
+    @products = Product.all
   end
 
   def show

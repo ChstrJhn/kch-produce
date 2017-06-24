@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap-sass'
@@ -24,6 +24,7 @@ gem 'toastr-rails'
 gem 'paperclip'
 gem "font-awesome-rails"
 gem 'geocoder'
+gem 'cancancan', '~> 1.10'
 # gem 'redis', '~>3.2'
 # gem "hiredis", "~> 0.6.0"
 

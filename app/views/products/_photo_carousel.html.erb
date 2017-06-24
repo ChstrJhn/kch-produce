@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+
+	    <% if @product_photos %>
+	      <ol class="carousel-indicators">
+	  	    <% @product_photos.each do |v_photo| %>
+	        <li data-target="#myCarousel" data-slide-to="<%= v_photo.id %>"></li>
+	        <% end %>
+	      </ol>
+	    <% end %>
+
+	  <!-- Wrapper for slides -->
+	    <div class="carousel-inner" role="listbox">
+		  <% if @product_photos %>
+		    <% @product_photos.each do |photo| %>
+	        <div class="item <%= 'active' if photo.id == @product_photos[0].id %>">
+	          <div class="product-carousel"><%= image_tag photo.image.url(), class: "img-fluid img-responsive" %></div>
+	        </div>
+	        <% end %>
+	      <% end %>
+	    </div>
+
+	  <!-- Left and right controls -->
+	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	      <span class="sr-only">Previous</span>
+	    </a>
+	    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+	      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	      <span class="sr-only">Next</span>
+	    </a>
+    </div>
+  </div>
+</div>
